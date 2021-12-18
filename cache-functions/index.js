@@ -1,4 +1,5 @@
 import {createResultContainer, assert, stylingResults} from "../utils/assert.js"
+import {timeTest} from "../utils/performance.js"
 var store ={
     nextId: 1,
     cache: {},
@@ -12,7 +13,7 @@ var store ={
 };
 
 function init() {
-    createResultContainer();
+    timeTest(createResultContainer);
     function ninja(){}
     assert(store.add(ninja), "Function was safely added.");
     assert(!store.add(ninja), "But it was added once!");
