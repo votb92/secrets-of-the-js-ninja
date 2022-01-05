@@ -1,0 +1,14 @@
+<h1 class="title">This is title</h1>
+<button class="button">click me</button>
+
+<script>
+        element = document.querySelector(".title");
+        button = document.querySelector(".button");
+        element.style.color = "red"
+        element.textContent = "hi"
+        button.addEventListener("click", () => {
+                // console.log("hi");
+                element.textContent="click"
+                })
+</script>
+
