@@ -17,6 +17,12 @@ export function assert(value, desc){
     document.getElementById("results").appendChild(li);
 }
 
+export function report(desc){
+    var li =  document.createElement("li");
+    li.appendChild(document.createTextNode(desc));
+    document.getElementById("results").appendChild(li);
+}
+
 export function stylingResults(){
     styleDiv();
     const passes = document.querySelectorAll(".pass")
@@ -29,6 +35,7 @@ export function stylingResults(){
     if (fail){
         for (var i = 0; i < fail.length; ++i) {
             fail[i].style.color = "#ff0000";
+            fail[i].style.textDecoration = "line-through";
         }
     }
 }
