@@ -1,26 +1,29 @@
-export function createResultContainer(){
+export function createResultContainer(name="result-container"){
     var container = document.createElement("article");
     var results = document.createElement("article");
     var h1 = document.createElement("h1");
     h1.textContent = "Test:";
-    container.id = "result-container";
+    container.id = name;
     results.id = "results";
+    container.classList.add("result-container");
     container.appendChild(h1);
     container.appendChild(results);
     document.querySelector('body').appendChild(container);
 }
 
-export function assert(value, desc){
+export function assert(value, desc, name="result-container"){
     var li =  document.createElement("li");
     li.className = value ? "pass" : "fail";
     li.appendChild(document.createTextNode(desc));
-    document.getElementById("results").appendChild(li);
+    var ele = document.getElementById(name)
+    ele.querySelector("#results").appendChild(li);
 }
 
-export function report(desc){
+export function report(desc, name="result-container"){
     var li =  document.createElement("li");
     li.appendChild(document.createTextNode(desc));
-    document.getElementById("results").appendChild(li);
+    var ele = document.getElementById(name)
+    ele.querySelector("#results").appendChild(li);
 }
 
 export function stylingResults(){
@@ -41,8 +44,12 @@ export function stylingResults(){
 }
 
 function styleDiv(){
-    const container = document.getElementById("result-container");
-    container.style.border = "solid";
-    const results = document.getElementById("results");
-    results.style.margin = "15px";
+    const containers = document.querySelectorAll(".result-container");
+    containers.forEach(element => {
+        element.style.border = "solid";
+        element.style.margin = "15px";
+        const results = element.querySelector("#results");
+        results.style.margin = "15px";
+    })
+
 }
