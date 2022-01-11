@@ -43,6 +43,9 @@ export function stylingResults(){
     }
 }
 
+export function pass(text) { assert(true, text); }
+export function fail(text) { assert(false, text); }
+
 function styleDiv(){
     const containers = document.querySelectorAll(".result-container");
     containers.forEach(element => {
