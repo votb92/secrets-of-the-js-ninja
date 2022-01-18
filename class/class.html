@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>
+                Call method and constructor from child class
+        </title>
+</head>
+
+<body>
+        <script type="text/javascript">
+                class Parent {
+                        constructor(name) {
+                                this.name = name;
+                        }
+
+                        display() {
+                                alert("name: " + this.name);
+                        }
+                }
+
+                class Child extends Parent {
+                        constructor(name, num) {
+
+                                // Calling parent's constructor
+                                super(name);
+                                this.num = num;
+                        }
+
+                        display() {
+
+                                // Calling display() from parent
+                                super.display();
+                                alert("num: " + this.num);
+                        }
+                }
+
+                let p1 = new Parent("a");
+                let c1 = new Child("b", 1);
+                p1.display();
+                c1.display();
+        </script>
+</body>
+
+</html>
