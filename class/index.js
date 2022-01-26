@@ -14,7 +14,7 @@ class Person {
 }
 
 class Ninja extends Person {
-    construct(name, weapon, level=0){
+    constructor(name, weapon, level=0){
     super(name); //Uncomment this line of code when super gets supported.
         this.weapon = weapon;
         this.level = level;
