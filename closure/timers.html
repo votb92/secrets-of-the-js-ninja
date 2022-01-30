@@ -1,0 +1,20 @@
+<div id="box1">First Box</div>
+<div id="box2">Second Box</div>
+<script>
+    function animateIt(elementId){
+        var element = document.getElementById(elementId);
+        console.log(element);
+        var tick = 0;
+        var timer = setInterval(function() {
+            if (tick<100){
+                element.style.left = element.style.top = tick + "px";
+                tick++;
+            }
+            else{
+                clearInterval(timer);
+            }
+        },1000);
+    }
+    animateIt("box1");
+    animateIt("box2");
+</script>
